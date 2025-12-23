@@ -1,0 +1,300 @@
+{
+    "version": 1,
+    "author": "Riccardo Gentile",
+    "editor": "wokwi",
+    "parts": [
+        {
+            "type": "wokwi-arduino-uno",
+            "id": "uno",
+            "top": 0,
+            "left": 0,
+            "attrs": {}
+        },
+        {
+            "type": "wokwi-lcd1602",
+            "id": "lcd1",
+            "top": -180,
+            "left": 0,
+            "attrs": {
+                "pins": "i2c"
+            }
+        },
+        {
+            "type": "wokwi-membrane-keypad",
+            "id": "keypad1",
+            "top": -200,
+            "left": 250,
+            "attrs": {
+                "keys": [
+                    "1",
+                    "2",
+                    "3",
+                    "A",
+                    "4",
+                    "5",
+                    "6",
+                    "B",
+                    "7",
+                    "8",
+                    "9",
+                    "C",
+                    "*",
+                    "0",
+                    "#",
+                    "D"
+                ]
+            }
+        },
+        {
+            "type": "wokwi-led",
+            "id": "led-red",
+            "top": 150,
+            "left": 300,
+            "attrs": {
+                "color": "red"
+            }
+        },
+        {
+            "type": "wokwi-led",
+            "id": "led-yellow",
+            "top": 150,
+            "left": 340,
+            "attrs": {
+                "color": "yellow"
+            }
+        },
+        {
+            "type": "wokwi-led",
+            "id": "led-green",
+            "top": 150,
+            "left": 380,
+            "attrs": {
+                "color": "green"
+            }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r1",
+            "top": 200,
+            "left": 300,
+            "attrs": {
+                "value": "220"
+            }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r2",
+            "top": 200,
+            "left": 340,
+            "attrs": {
+                "value": "220"
+            }
+        },
+        {
+            "type": "wokwi-resistor",
+            "id": "r3",
+            "top": 200,
+            "left": 380,
+            "attrs": {
+                "value": "220"
+            }
+        },
+        {
+            "type": "wokwi-buzzer",
+            "id": "buzzer1",
+            "top": 150,
+            "left": 450,
+            "attrs": {}
+        }
+    ],
+    "connections": [
+        [
+            "lcd1:GND",
+            "uno:GND.1",
+            "black",
+            [
+                "v10",
+                "h-50"
+            ]
+        ],
+        [
+            "lcd1:VCC",
+            "uno:5V",
+            "red",
+            [
+                "v20",
+                "h-30"
+            ]
+        ],
+        [
+            "lcd1:SDA",
+            "uno:A4",
+            "green",
+            [
+                "v30",
+                "h10"
+            ]
+        ],
+        [
+            "lcd1:SCL",
+            "uno:A5",
+            "blue",
+            [
+                "v40",
+                "h20"
+            ]
+        ],
+        [
+            "keypad1:R1",
+            "uno:9",
+            "orange",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "keypad1:R2",
+            "uno:8",
+            "orange",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "keypad1:R3",
+            "uno:7",
+            "orange",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "keypad1:R4",
+            "uno:6",
+            "orange",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "keypad1:C1",
+            "uno:5",
+            "yellow",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "keypad1:C2",
+            "uno:4",
+            "yellow",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "keypad1:C3",
+            "uno:3",
+            "yellow",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "keypad1:C4",
+            "uno:2",
+            "yellow",
+            [
+                "h0"
+            ]
+        ],
+        [
+            "led-red:A",
+            "uno:10",
+            "red",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "led-red:C",
+            "r1:1",
+            "black",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "r1:2",
+            "uno:GND.2",
+            "black",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "led-yellow:A",
+            "uno:11",
+            "yellow",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "led-yellow:C",
+            "r2:1",
+            "black",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "r2:2",
+            "uno:GND.2",
+            "black",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "led-green:A",
+            "uno:12",
+            "green",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "led-green:C",
+            "r3:1",
+            "black",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "r3:2",
+            "uno:GND.2",
+            "black",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "buzzer1:1",
+            "uno:13",
+            "purple",
+            [
+                "v0"
+            ]
+        ],
+        [
+            "buzzer1:2",
+            "uno:GND.3",
+            "black",
+            [
+                "v0"
+            ]
+        ]
+    ]
+}

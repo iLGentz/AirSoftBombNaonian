@@ -1,0 +1,5 @@
+# Librerie richieste su Wokwi
+# Queste sono già incluse di default su Wokwi
+
+LiquidCrystal I2C
+Keypad
