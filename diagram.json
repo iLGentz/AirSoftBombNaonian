@@ -22,8 +22,8 @@
         {
             "type": "wokwi-membrane-keypad",
             "id": "keypad1",
-            "top": -200,
-            "left": 250,
+            "top": -203.6,
+            "left": 389.6,
             "attrs": {
                 "keys": [
                     "1",
@@ -48,26 +48,19 @@
         {
             "type": "wokwi-led",
             "id": "led-red",
-            "top": 150,
-            "left": 300,
+            "top": 284.4,
+            "left": 99.8,
+            "rotate": 270,
             "attrs": {
                 "color": "red"
             }
         },
         {
             "type": "wokwi-led",
-            "id": "led-yellow",
-            "top": 150,
-            "left": 340,
-            "attrs": {
-                "color": "yellow"
-            }
-        },
-        {
-            "type": "wokwi-led",
             "id": "led-green",
-            "top": 150,
-            "left": 380,
+            "top": 313.2,
+            "left": 42.2,
+            "rotate": 270,
             "attrs": {
                 "color": "green"
             }
@@ -75,17 +68,8 @@
         {
             "type": "wokwi-resistor",
             "id": "r1",
-            "top": 200,
-            "left": 300,
-            "attrs": {
-                "value": "220"
-            }
-        },
-        {
-            "type": "wokwi-resistor",
-            "id": "r2",
-            "top": 200,
-            "left": 340,
+            "top": 359.15,
+            "left": 153.6,
             "attrs": {
                 "value": "220"
             }
@@ -93,8 +77,9 @@
         {
             "type": "wokwi-resistor",
             "id": "r3",
-            "top": 200,
-            "left": 380,
+            "top": 349,
+            "left": -10.45,
+            "rotate": 270,
             "attrs": {
                 "value": "220"
             }
@@ -102,8 +87,9 @@
         {
             "type": "wokwi-buzzer",
             "id": "buzzer1",
-            "top": 150,
-            "left": 450,
+            "top": 307.2,
+            "left": 326.4,
+            "rotate": 180,
             "attrs": {}
         }
     ],
@@ -233,33 +219,9 @@
             ]
         ],
         [
-            "led-yellow:A",
-            "uno:11",
-            "yellow",
-            [
-                "v0"
-            ]
-        ],
-        [
-            "led-yellow:C",
-            "r2:1",
-            "black",
-            [
-                "v0"
-            ]
-        ],
-        [
-            "r2:2",
-            "uno:GND.2",
-            "black",
-            [
-                "v0"
-            ]
-        ],
-        [
             "led-green:A",
             "uno:12",
-            "green",
+            "black",
             [
                 "v0"
             ]
@@ -296,5 +258,6 @@
                 "v0"
             ]
         ]
-    ]
+    ],
+    "dependencies": {}
 }
