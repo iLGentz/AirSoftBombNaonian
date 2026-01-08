@@ -1,3 +1,4 @@
+
 # 💣 Airsoft Bomb Simulator (Wokwi)
 
 ## 🎮 Comandi Veloci
@@ -16,15 +17,41 @@
 | **\***  | **Conferma**      | Tasto invio/OK |
 | **#**   | **Cancella**      | Resetta input corrente |
 | **D**   | **Disarma**       | Solo quando armata |
-| **A** | **Dev Mode** | Tieni premuto per 5 sec |
+| **A** | **Dev Mode** | Premi per accedere |
 
 ### 🛠️ Modalità Dev (Sviluppatore)
-1. Nella schermata iniziale, **tieni premuto 'A' per 5 secondi**
+1. Nella schermata iniziale, **premi 'A'** per accedere al login
 2. Inserisci la password DEV: `123456` + `*`
 3. Usa il menu:
    - **B**: Imposta **Timer** (in secondi) → `B` per salvare
    - **C**: Imposta **Codice Disarmo** → `C` per salvare
    - **A**: Esci e torna al menu principale
+
+### 📝 Variabili di Configurazione (Sketch)
+Ecco le variabili principali che puoi modificare all'inizio del file `sketch.ino` per personalizzare il comportamento:
+
+```cpp
+// Tempo iniziale della bomba (in secondi)
+// 300 = 5 minuti. Modifica questo valore per partite più lunghe o corte.
+unsigned long bombTimer = 300;
+
+// Password per ARMARE la bomba (Default: 000000)
+// Questa è la password che i terroristi usano per attivare la bomba.
+const char armPassword[] = "000000";
+
+// Password per accedere al menu SVILUPPATORE (Default: 123456)
+// Serve per cambiare timer e codice disarmo senza riprogrammare.
+const char devPassword[] = "123456";
+
+// Password INIZIALE per DISARMARE (Default: 123456)
+// Nota: Questa variabile può essere cambiata dal Menu Dev durante il gioco.
+char disarmPassword[10] = "123456";
+
+// Altre variabili di sistema (Non modificare)
+// inputPassword[]: Buffer che memorizza i numeri digitati
+// lastDisplayUpdate: Usa millis() per aggiornare lo schermo ogni secondo
+// lastLedBlinkTime: Gestisce il lampeggio dei LED senza bloccare il loop
+```
 
 ---
 
