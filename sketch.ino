@@ -107,26 +107,6 @@ void setup() {
 void loop() {
   char key = keypad.getKey();
   
-  // Long press A check using key event
-  if (currentState == S_IDLE) {
-    // Se premi A, inizia il conteggio
-    if (key == 'A') {
-      if (!keyAPressed) {
-        keyAPressStart = millis();
-        keyAPressed = true;
-      }
-    }
-    
-    // Se A è stato premuto, controlla se sono passati 5 secondi
-    if (keyAPressed) {
-      if (millis() - keyAPressStart >= 5000) {
-        enterDevLogin();
-        keyAPressed = false;
-        return; // Esci dal loop per evitare doppia gestione
-      }
-    }
-  }
-
   if (key) {
     // Reset conteggio se premi un altro tasto
     if (key != 'A') {
@@ -197,6 +177,9 @@ void handleKeyPress(char key) {
       } else {
         wrongPassword();
       }
+    }
+    else if (key == 'A') {
+      enterDevLogin();
     } 
     else if (key >= '0' && key <= '9') {
       addToPassword(key);
@@ -331,7 +314,7 @@ void armBomb() {
   clearPassword();
 
   lcd.clear();
-  lcd.print(F("BOMBA ARMATA!"));
+  lcd.print(F("!! BOMB ARMED !!"));
   
   for (int i = 0; i < 3; i++) {
     tone(BUZZER_PIN, 1000, 200);
@@ -373,6 +356,7 @@ void updateBombTimer() {
     lastDisplayUpdate = now;
     
     if (currentState == S_ARMED) displayArmedScreen();
+    else if (currentState == S_DEFUSING) displayDefusingScreen();
     
     if (remaining > 0) {
       if (remaining < 30) {
@@ -411,7 +395,7 @@ void explodeBomb() {
   lcd.clear();
   lcd.print(F("** EXPLOSION **"));
   lcd.setCursor(0, 1);
-  lcd.print(F("GAME OVER!"));
+  lcd.print(F("TERRORIST WIN"));
 
   // 10 sec alarm
   unsigned long start = millis();
@@ -451,9 +435,9 @@ void defuseBomb() {
   noTone(BUZZER_PIN);
 
   lcd.clear();
-  lcd.print(F("DEFUSED!"));
+  lcd.print(F("DEFUSED"));
   lcd.setCursor(0, 1);
-  lcd.print(F("Mission OK!"));
+  lcd.print(F("BOMB DISARMED"));
 
   delay(3000);
   resetSystem();
@@ -462,7 +446,7 @@ void defuseBomb() {
 // ======= WRONG PASSWORD =======
 void wrongPassword() {
   lcd.clear();
-  lcd.print(F("WRONG CODE!"));
+  lcd.print(F("!! WRONG CODE !!"));
   tone(BUZZER_PIN, 400, 500);
   delay(2000);
   clearPassword();
@@ -511,8 +495,16 @@ void displayArmedScreen() {
 }
 
 void displayDefusingScreen() {
+  unsigned long elapsed = (millis() - bombStartTime) / 1000;
+  unsigned long remaining = (elapsed < bombTimer) ? (bombTimer - elapsed) : 0;
+  
   lcd.clear();
-  lcd.print(F("DEFUSING..."));
+  lcd.print(F("EXPLODE IN "));
+  if (remaining/60 < 10) lcd.print('0');
+  lcd.print(remaining/60);
+  lcd.print(':');
+  if (remaining%60 < 10) lcd.print('0');
+  lcd.print(remaining%60);
   lcd.setCursor(0, 1);
   lcd.print(F("Code: "));
   for (int i = 0; i < passwordIndex; i++) lcd.print('*');
