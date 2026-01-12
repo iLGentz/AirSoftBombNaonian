@@ -13,17 +13,15 @@
         {
             "type": "wokwi-lcd1602",
             "id": "lcd1",
-            "top": -180,
-            "left": 0,
-            "attrs": {
-                "pins": "i2c"
-            }
+            "top": 409.6,
+            "left": 600.8,
+            "attrs": {}
         },
         {
             "type": "wokwi-membrane-keypad",
             "id": "keypad1",
-            "top": -203.6,
-            "left": 389.6,
+            "top": -539.6,
+            "left": 120.8,
             "attrs": {
                 "keys": [
                     "1",
@@ -48,8 +46,8 @@
         {
             "type": "wokwi-led",
             "id": "led-red",
-            "top": 284.4,
-            "left": 99.8,
+            "top": 392.8,
+            "left": 68.6,
             "rotate": 270,
             "attrs": {
                 "color": "red"
@@ -58,8 +56,8 @@
         {
             "type": "wokwi-led",
             "id": "led-green",
-            "top": 313.2,
-            "left": 42.2,
+            "top": 248.8,
+            "left": -85,
             "rotate": 270,
             "attrs": {
                 "color": "green"
@@ -68,8 +66,8 @@
         {
             "type": "wokwi-resistor",
             "id": "r1",
-            "top": 359.15,
-            "left": 153.6,
+            "top": 445.55,
+            "left": 201.6,
             "attrs": {
                 "value": "220"
             }
@@ -77,8 +75,8 @@
         {
             "type": "wokwi-resistor",
             "id": "r3",
-            "top": 349,
-            "left": -10.45,
+            "top": 291.4,
+            "left": 133.55,
             "rotate": 270,
             "attrs": {
                 "value": "220"
@@ -95,47 +93,60 @@
     ],
     "connections": [
         [
-            "lcd1:GND",
+            "lcd1:VSS",
             "uno:GND.1",
             "black",
-            [
-                "v10",
-                "h-50"
-            ]
+            []
         ],
         [
-            "lcd1:VCC",
+            "lcd1:VDD",
             "uno:5V",
             "red",
-            [
-                "v20",
-                "h-30"
-            ]
+            []
         ],
         [
-            "lcd1:SDA",
-            "uno:A4",
+            "lcd1:RS",
+            "uno:A0",
             "green",
-            [
-                "v30",
-                "h10"
-            ]
+            []
         ],
         [
-            "lcd1:SCL",
-            "uno:A5",
+            "lcd1:E",
+            "uno:A1",
             "blue",
-            [
-                "v40",
-                "h20"
-            ]
+            []
+        ],
+        [
+            "lcd1:D4",
+            "uno:A2",
+            "orange",
+            []
+        ],
+        [
+            "lcd1:D5",
+            "uno:A3",
+            "orange",
+            []
+        ],
+        [
+            "lcd1:D6",
+            "uno:A4",
+            "orange",
+            []
+        ],
+        [
+            "lcd1:D7",
+            "uno:A5",
+            "orange",
+            []
         ],
         [
             "keypad1:R1",
             "uno:9",
             "orange",
             [
-                "h0"
+                "v96",
+                "h-57.8"
             ]
         ],
         [
@@ -143,7 +154,8 @@
             "uno:8",
             "orange",
             [
-                "h0"
+                "v115.2",
+                "h-57.8"
             ]
         ],
         [
@@ -151,7 +163,9 @@
             "uno:7",
             "orange",
             [
-                "h0"
+                "h-0.3",
+                "v124.8",
+                "h-51"
             ]
         ],
         [
@@ -159,7 +173,9 @@
             "uno:6",
             "orange",
             [
-                "h0"
+                "h-0.2",
+                "v134.4",
+                "h-51.1"
             ]
         ],
         [
@@ -167,7 +183,9 @@
             "uno:5",
             "yellow",
             [
-                "h0"
+                "h-0.1",
+                "v153.6",
+                "h-51.2"
             ]
         ],
         [
@@ -175,7 +193,8 @@
             "uno:4",
             "yellow",
             [
-                "h0"
+                "v172.8",
+                "h-51.3"
             ]
         ],
         [
@@ -183,7 +202,9 @@
             "uno:3",
             "yellow",
             [
-                "h0"
+                "h-0.15",
+                "v201.6",
+                "h-51.4"
             ]
         ],
         [
@@ -191,7 +212,8 @@
             "uno:2",
             "yellow",
             [
-                "h0"
+                "h-0.3",
+                "v210.6"
             ]
         ],
         [
@@ -199,7 +221,8 @@
             "uno:10",
             "red",
             [
-                "v0"
+                "v-412.8",
+                "h47.9"
             ]
         ],
         [
@@ -215,7 +238,8 @@
             "uno:GND.2",
             "black",
             [
-                "v0"
+                "v-172.8",
+                "h-90.9"
             ]
         ],
         [
@@ -239,7 +263,8 @@
             "uno:GND.2",
             "black",
             [
-                "v0"
+                "v-85.2",
+                "h6.3"
             ]
         ],
         [
@@ -247,7 +272,8 @@
             "uno:13",
             "purple",
             [
-                "v0"
+                "v-288",
+                "h-249.4"
             ]
         ],
         [
@@ -255,7 +281,10 @@
             "uno:GND.3",
             "black",
             [
-                "v0"
+                "v-48",
+                "h-162.8",
+                "v-38.4",
+                "h-22.6"
             ]
         ]
     ],

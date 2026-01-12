@@ -3,11 +3,11 @@
 // Ottimizzato per Arduino Uno
 // ========================================
 
-#include <LiquidCrystal_I2C.h>
+#include <LiquidCrystal.h>
 #include <Keypad.h>
 
-// ======= LCD I2C =======
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+// ======= LCD PARALLEL (RS, E, D4, D5, D6, D7) =======
+LiquidCrystal lcd(A0, A1, A2, A3, A4, A5);
 
 // ======= KEYPAD 4x4 =======
 const byte ROWS = 4;
@@ -85,8 +85,7 @@ void setup() {
   Serial.println(F("ARM:000000 DEV:123456"));
   Serial.println(F("Hold A 10s=DEV mode"));
   
-  lcd.init();
-  lcd.backlight();
+  lcd.begin(16, 2);
   lcd.print(F("AIRSOFT BOMB"));
   lcd.setCursor(0, 1);
   lcd.print(F("v2.0 DEV MODE"));
